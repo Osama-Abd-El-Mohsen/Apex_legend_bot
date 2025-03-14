@@ -7,6 +7,7 @@ from discord import Interaction,app_commands,Permissions
 import requests
 import json
 
+owner_id = [716301044514029619]
 
 colors = [
     discord.Color.blue(),
@@ -35,7 +36,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 API_KEY = os.getenv('API_KEY')
 guild_id = os.getenv('guild_id')
-owner_id = os.getenv('owner_id')
+
 HEADERS = {
     "API": API_KEY
 }
@@ -98,7 +99,7 @@ async def اشتم(interaction: discord.Interaction, member: discord.Member ):
 
 @ client.tree.command(name="هوب",description="عشان تهوب الناس",guild=guild_id)
 async def  هوب (interaction: discord.Interaction):
-    await interaction.channel.send("|| @everyone || \n")
+    await interaction.channel.send(" 🎮 هوبا  || @everyone || \n")
     await interaction.channel.send("https://media1.tenor.com/m/P0vlhsLYeBQAAAAC/stretching-warriors-song.gif"
         , allowed_mentions=discord.AllowedMentions(everyone=True))
 
