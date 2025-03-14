@@ -7,7 +7,6 @@ from discord import Interaction,app_commands,Permissions
 import requests
 import json
 
-owner_id=[716301044514029619]
 
 colors = [
     discord.Color.blue(),
@@ -35,6 +34,8 @@ mode_choices = [
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 API_KEY = os.getenv('API_KEY')
+guild_id = os.getenv('guild_id')
+owner_id = os.getenv('owner_id')
 HEADERS = {
     "API": API_KEY
 }
@@ -48,7 +49,7 @@ intents.message_content = True
 client = commands.Bot(command_prefix="!", intents=intents)
 
 # Set Guild ID for slash command sync
-guild_id = discord.Object(id=1349846474220900395)  # Make sure this is your server's ID
+guild_id = discord.Object(id=guild_id)  # Make sure this is your server's ID
 
 
 # Bot Ready Event (Sync Commands)
