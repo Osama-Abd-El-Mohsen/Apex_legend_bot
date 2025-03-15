@@ -154,26 +154,29 @@ async def map_rotation(interaction: discord.Interaction , mode : app_commands.Ch
 
                         embeds.append(embed)  # Append the embed to the list
                 else :
-                    title = f"**Mode**: {'Mixtape' if mode.value =='ltm' else  mode.value}"  
+                    title = f"**Mode**: {'Mixtape' if mode.value =='ltm' else  mode.value}" 
                     embed = discord.Embed(title=title, description="Current and Next Map Rotation", color=colors[-1])
                     # Current Map Data
                     try:
                         current_map = data[mode.value]['current']['map']
                         current_asset = data[mode.value]['current']['asset']
                         remaining_timer = data[mode.value]['current']['remainingTimer']
-                        current_event_name = data[mode.value]['current']['eventName']
+                        try : current_event_name = data[mode.value]['current']['eventName']
+                        except : current_event_name =" "
 
                         embed.add_field(name=f"** 🗺️ Current Map: ** {current_map} `{current_event_name if {mode.value =='ltm'} else ' '  }`", value=f" ", inline=False)
                         embed.add_field(name=f"** ⏳ Remaining Time: ** {remaining_timer}  minutes", value=f" ", inline=False)
                         embed.set_image(url=current_asset)
                     except KeyError:
+                        print(KeyError)
                         embed.add_field(name="**❌ Error:**", value="Unable to fetch current map data.", inline=False)
 
                     # Next Map Data
                     try:
                         next_map = data[mode.value]['next']['map']
                         next_asset = data[mode.value]['next']['asset']
-                        next_event_name = data[mode.value]['next']['eventName']
+                        try : next_event_name = data[mode.value]['current']['eventName']
+                        except : next_event_name =" "
 
                         embed.add_field(name=f"** 🚀 Next Map: ** {next_map} `{next_event_name if {mode.value =='ltm'} else ' '  }`",value=f" ", inline=False)
                         embed.set_thumbnail(url=next_asset)
