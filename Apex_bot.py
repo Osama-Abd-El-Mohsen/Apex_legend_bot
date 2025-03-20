@@ -91,10 +91,17 @@ async def اشتم(interaction: Interaction, member: discord.Member):
 
 @ client.tree.command(name="هوب", description="عشان تهوب الناس", guild=guild_id)
 async def هوب(interaction: Interaction):
+<<<<<<< HEAD
     await interaction.channel.send("https://c.tenor.com/P0vlhsLYeBQAAAAC/tenor.gif", allowed_mentions=discord.AllowedMentions(everyone=True))
     message = await interaction.channel.send(" 🎮 هوبا  || @everyone || \n")
     await message.add_reaction('🎮')
 
+=======
+    await interaction.channel.send(" 🎮 هوبا  || @everyone || \n")
+    await interaction.channel.send("https://media1.tenor.com/m/P0vlhsLYeBQAAAAC/stretching-warriors-song.gif", allowed_mentions=discord.AllowedMentions(everyone=True))
+
+
+>>>>>>> 5417ad24a0e755f2ddf7d74e377c2c112ceddafc
 @ client.tree.command(name="بوس", description="عشان تعالج مكان السهم", guild=guild_id)
 async def بوس(interaction: Interaction, member: discord.Member):
     await interaction.response.send_message(f"https://cdn.discordapp.com/emojis/710014175904137267.gif?v=1")
