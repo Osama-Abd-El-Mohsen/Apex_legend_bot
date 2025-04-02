@@ -56,8 +56,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message: discord.Message):
+    x = message.author.id
+    if x in owner_id:
+        await message.add_reaction('🤖')
+        await message.add_reaction('❤️')
+        await message.add_reaction('🫵')
     if message.content == "-":
-        x = message.author.id
         if x in owner_id:
             member = message.author
             role = discord.utils.get(message.guild.roles, name="^_^")
